@@ -1,0 +1,13 @@
+#!/bin/sh
+
+grep "$2" $1 | awk -F "\t" '{print $1-1 " " $1 " " $1+1}' > /tmp/rows
+
+grep "$(awk -F " " '{print $1}' /tmp/rows)" $1 > /tmp/seats
+
+grep "$(awk -F " " '{print $2}' /tmp/rows)" $1 >> /tmp/seats
+
+grep "$(awk -F " " '{print $3}' /tmp/rows)" $1 >> /tmp/seats
+
+awk -F "\t" '{print $2 "\t" $3 "\t" $4 "\t" $5 "\t" $6 "\t" $7}' /tmp/seats
+
+rm /tmp/rows /tmp/seats
