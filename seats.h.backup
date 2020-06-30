@@ -1,0 +1,10 @@
+using namespace std;
+
+string list()
+{
+	string seats[] = {"Jim", "Joe", "Jayden", "James", "Joan", "Joline", "Jasper", "Jannis", "Josiah", "Jack", "Jill", "John", "Jane", "Jeanette", "Joshua", "Jennifer", "Juliet", "Joanne", "Josephine", "Jeremiah", "Jordan", "Joseph", "Jupiter", "Jerry"};
+
+	int len = *(&seats + 1) - seats;
+	
+	return seats[len];
+}
