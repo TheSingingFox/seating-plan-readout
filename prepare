@@ -1,13 +1,3 @@
 #!/bin/sh
 
-echo "using namespace std;" > seats.h
-echo "string list()" >> seats.h
-echo "{" >> seats.h
-echo "string seats[] = {" >> seats.h
-
-awk -F "\t" '{print "\""$2"\"" ","}' liste >> seats.h
-
-echo "};" >> seats.h
-echo "int len = *(&seats + 1) - seats;" >> seats.h
-echo "return seats[len];" >> seats.h
-echo "}" >> seats.h
+awk -F "\t" '{print $2}' liste > seats
