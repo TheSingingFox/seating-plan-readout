@@ -1,6 +1,6 @@
 # seating-plan-readout
 
-## What is this?
+# Work in progress.
 
 A little program to read out a attendee list to get the neighbours of a given person.
 
