@@ -42,6 +42,11 @@ int main(){
 
 	//we want 3 rows printed out, therefore we need to loop this thrice
 	for(int i = 0; i < 3; i++){
+		if(num < 0){
+			num = num + rows;
+			num2 = num;
+			i++;
+		}
 		//just run getline until it is at the desired line
 		for(j; j < num2; j++){
 			getline(seats, line, '\n');
