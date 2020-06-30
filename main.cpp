@@ -42,10 +42,11 @@ int main(){
 
 	//we want 3 rows printed out, therefore we need to loop this thrice
 	for(int i = 0; i < 3; i++){
-		//
+		//just run getline until it is at the desired line
 		for(j; j < num2; j++){
 			getline(seats, line, '\n');
 		}
+		//if the seat is at a side, we don't want the last seat of the row before to be printed.
 		if((num + rows) % rows != 1){
 			cout << line; 
 		}
@@ -57,10 +58,13 @@ int main(){
 		} else{
 			cout << endl;
 		}
+		//go one row forward
 		num = num + rows;
+		//realign getline
 		num2 = num2 + rows - 2;
 	}
 
+	//clean up behind yourself
 	seats.close();
 
 	return 0;
