@@ -2,22 +2,18 @@
 
 ## What is this?
 
-A little script to read out a seating plan of the format visible in the 
-
-	test
-
-file to get the neighbours of a given person.
+A little program to read out a attendee list to get the neighbours of a given person.
 
 ## How does this work?
 
-	./pipe *file* *person*
+	./all
 
-For example, 
+Then follow instructions.
 
-	./pipe test Don
+## Building from source
 
-gives the output
+Run this in a terminal:
 
-	Mike	Matt	Mary	Mitch	Mel	Marylin
-	Dick	Dean	Dave	Don	Dana	DeShawn
-	Laura	Lionel	Luke	Leslie	Lena	Lucy
+	git clone https://github.com/TheSingingFox/seating-plan-readout.git
+	cd seating-plan-readout/
+	g++ -o main main.cpp
