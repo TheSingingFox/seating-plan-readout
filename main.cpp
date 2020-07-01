@@ -4,23 +4,15 @@ using namespace std;
 
 int main(){
 
-	//the first num is there to get the desired seat
-	int num;
-	//the second num is there, because getline() searches the external document line by line and needs to be realigned
-	int num2;
-	//to get the number of seats in a row
-	int rows;
-	int j = 1;
-	string input;
-	string line;
-	//get a numbered list of attendees from the file "liste"
+	//get attendee list
 	ifstream list;
 	list.open ("liste");
-	//get an unnumbered list from "seats"
 	ifstream seats;
 	seats.open ("seats");
 
 	//get user input wether to display the numbered list or not
+	string input;
+	string line;
 	cout << "Do you want to see who was there?" << endl;
 	getline(cin, input);
 	if (input == "yes") {
@@ -29,7 +21,9 @@ int main(){
 		}
 	}
 	
-	//fill out num and row with user input
+	//get user input on the number of seats in a row  and the number of the person of interest
+	int rows;
+	int num;
 	cout << "How long are the rows?" << endl;
 	cin >> rows;
 	cout << "Who do you want? (number)" << endl;
@@ -37,10 +31,12 @@ int main(){
 	cout << "They sat as follows: \n\n";
 
 	//reduce num by rows to start a row earlier
+	int num2;
 	num = num - rows;
 	num2 = num;
 
 	//we want 3 rows printed out, therefore we need to loop this thrice
+	int j = 1;
 	for(int i = 0; i < 3; i++){
 		if(num < 0){
 			num = num + rows;
