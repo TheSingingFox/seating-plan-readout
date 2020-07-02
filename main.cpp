@@ -5,19 +5,22 @@ using namespace std;
 int main(){
 
 	//get attendee list
+	string file;
+	cout << "Which file do you want to use?" << endl;
+	getline(cin, file);
 	ifstream list;
-	list.open ("liste");
-	ifstream seats;
-	seats.open ("seats");
+	list.open (file);
 
 	//get user input wether to display the numbered list or not
 	string input;
 	string line;
+	int count = 1;
 	cout << "Do you want to see who was there?" << endl;
 	getline(cin, input);
 	if (input == "yes") {
 		while(getline(list, line)){
-				cout << line << endl;
+				cout << count << "\t" << line << endl;
+				count++;
 		}
 	}
 	
@@ -45,15 +48,15 @@ int main(){
 		}
 		//just run getline until it is at the desired line
 		for(j; j < num2; j++){
-			getline(seats, line, '\n');
+			getline(list, line, '\n');
 		}
 		//if the seat is at a side, we don't want the last seat of the row before to be printed.
 		if((num + rows) % rows != 1){
 			cout << line; 
 		}
-		getline(seats, line, '\n');
-		cout << " " << line << " ";
-		getline(seats, line, '\n');
+		getline(list, line, '\n');
+		cout << "\t" << line << "\t";
+		getline(list, line, '\n');
 		if((num + rows) % rows != 0){
 			cout << line << endl;
 		} else{
@@ -66,7 +69,7 @@ int main(){
 	}
 
 	//clean up behind yourself
-	seats.close();
+	list.close();
 
 	return 0;
 }
